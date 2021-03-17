@@ -23,11 +23,30 @@ echo "---output values stored in DICTIONARY--"
 dict=([1]=$res1 [2]=$res2 [3]=$res3 [4]=$res4)
 echo ${dict[@]}
 
-echo "--Store Dictionary values in Array---"
+echo "--Read values from Dictionary into the Array---"
 
 for (( i=0; i<=${#dict[@]}; i++ ))
 do
 	arr[$i]=${dict[$i]}
+done
+
+echo ${arr[@]}
+
+
+echo "--sort Array values in Ascending values---"
+
+for (( i=0; i<${#arr[@]}; i++ ))
+do
+	for(( j=$i+1; j<${#arr[@]}; j++ ))
+	do
+
+		if [ ${arr[$i]} -gt ${arr[$j]} ]
+		then
+			temp=${arr[$i]}
+			arr[$i]=${arr[$j]}
+			arr[$j]=$temp
+		fi
+	done
 done
 
 echo ${arr[@]}
