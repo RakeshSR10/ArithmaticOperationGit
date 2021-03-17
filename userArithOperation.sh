@@ -7,3 +7,5 @@ read -p "Enter number3 = " c
 res1=$(($a+$b*$c))
 echo $res1
 
+res2=$(($a*$b+$c))
+echo $res2
